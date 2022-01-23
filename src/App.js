@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import Button from './components/button';
 import './App.css';
 
 function App() {
+  const [status1, setstatus1] = useState('ON')
+  const [status2, setstatus2] = useState('ON')
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='lightContainer'>
+        <Button isOn={status1} toggle={() => setstatus1(status1 === 'ON' ? 'OFF' : 'ON')} />
+        <Button isOn={status2} toggle={() => setstatus2(status2 === 'ON' ? 'OFF' : 'ON')} />
+      </div>
     </div>
   );
 }
